@@ -170,13 +170,13 @@
       </hspacer>
       <component id="d4ef" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-1512722"/>
           <font name="JetBrains Mono" size="20" style="1"/>
           <foreground color="-16240632"/>
-          <text value="MENU"/>
+          <text value="MENU ADMINISTRADOR"/>
         </properties>
       </component>
       <vspacer id="64b7a">
@@ -203,6 +203,14 @@
         </constraints>
         <properties>
           <text value="Ingresar/Actualizar Producto"/>
+        </properties>
+      </component>
+      <component id="90904" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="6" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Label"/>
         </properties>
       </component>
     </children>
