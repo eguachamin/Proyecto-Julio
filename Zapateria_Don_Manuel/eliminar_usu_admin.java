@@ -27,7 +27,7 @@ public class eliminar_usu_admin extends JFrame{
     public eliminar_usu_admin() {
         super("Eliminar Cajeros_Usuarios");
         setContentPane(JPanel_eliminar);
-        ImageIcon icon_user = new ImageIcon(getClass().getResource("IMAGENES/user-interface1.png"));
+        ImageIcon icon_user = new ImageIcon(getClass().getResource("IMAGENES/borrar-usuario.png"));
         elim_foto.setIcon(icon_user);
 
         BUSCARButton.addActionListener(new ActionListener() {

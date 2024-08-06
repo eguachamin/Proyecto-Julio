@@ -149,7 +149,7 @@
       </vspacer>
       <component id="80f70" class="javax.swing.JLabel" binding="Foto_zapa">
         <constraints>
-          <grid row="1" column="5" row-span="5" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="5" row-span="3" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <foreground color="-2346"/>

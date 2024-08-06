@@ -1,5 +1,7 @@
 package Zapateria_Don_Manuel;
 
+import Zapateria_Don_Manuel_CAJERO.Login_Cajero;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,16 +20,24 @@ public class Pant_Principal  extends JFrame{
 
         super("Pantalla Principal");
         setContentPane(JPanel_Opciones);
-        ImageIcon icon_zapa = new ImageIcon(getClass().getResource("IMAGENES/zapatos.png"));
-        Foto_zapa.setIcon(icon_zapa);
         ImageIcon icon_adm = new ImageIcon(getClass().getResource("IMAGENES/administracion.png"));
         foto_adm.setIcon(icon_adm);
         ImageIcon icon_caj = new ImageIcon(getClass().getResource("IMAGENES/cajero.png"));
         foto_caj.setIcon(icon_caj);
+        ImageIcon icon_zapa = new ImageIcon(getClass().getResource("IMAGENES/zapatos.png"));
+        Foto_zapa.setIcon(icon_zapa);
         ADMINISTRADORButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Login_Admin inicio = new Login_Admin();
+                inicio.iniciar();
+                dispose();
+            }
+        });
+        CAJEROButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Login_Cajero inicio = new Login_Cajero();
                 inicio.iniciar();
                 dispose();
             }
