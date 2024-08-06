@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Zapateria_Don_Manuel.Menu_Admin">
-  <grid id="27dc6" binding="JPanel_Menu" layout-manager="GridLayoutManager" row-count="13" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="JPanel_Menu" layout-manager="GridLayoutManager" row-count="15" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="783" height="400"/>
@@ -10,12 +10,12 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="bc6ca" class="javax.swing.JLabel">
+      <component id="bc6ca" class="javax.swing.JLabel" binding="img_user_ing">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="189f4" class="javax.swing.JButton" binding="ingresarActualizarUsuariosButton" default-binding="true">
@@ -31,12 +31,12 @@
           <hideActionText class="java.lang.Boolean" value="false"/>
         </clientProperties>
       </component>
-      <component id="fcbe5" class="javax.swing.JLabel">
+      <component id="fcbe5" class="javax.swing.JLabel" binding="delte_img_user">
         <constraints>
           <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="c7472" class="javax.swing.JButton" binding="eliminarUsuariosButton" default-binding="true">
@@ -47,12 +47,12 @@
           <text value="Eliminar Usuarios"/>
         </properties>
       </component>
-      <component id="d946d" class="javax.swing.JLabel">
+      <component id="d946d" class="javax.swing.JLabel" binding="img_venta_user">
         <constraints>
           <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="9ff66" class="javax.swing.JButton" binding="ventasPorVendedorButton" default-binding="true">
@@ -98,12 +98,12 @@
           <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="5614c" class="javax.swing.JLabel">
+      <component id="5614c" class="javax.swing.JLabel" binding="img_ing_prd">
         <constraints>
           <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="4232d">
@@ -111,12 +111,12 @@
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="79eed" class="javax.swing.JLabel">
+      <component id="79eed" class="javax.swing.JLabel" binding="delte_prd_img">
         <constraints>
           <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="eb596" class="javax.swing.JButton" binding="eliminarProductosButton" default-binding="true">
@@ -135,12 +135,12 @@
           <text value="Ventas General"/>
         </properties>
       </component>
-      <component id="2f0c9" class="javax.swing.JLabel">
+      <component id="2f0c9" class="javax.swing.JLabel" binding="genral_img_vent">
         <constraints>
           <grid row="8" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <vspacer id="cc1c5">
@@ -160,7 +160,7 @@
       </vspacer>
       <hspacer id="fc1b2">
         <constraints>
-          <grid row="12" column="0" row-span="1" col-span="10" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="14" column="0" row-span="1" col-span="10" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
       <hspacer id="44b5b">
@@ -170,7 +170,7 @@
       </hspacer>
       <component id="d4ef" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <background color="-1512722"/>
@@ -184,14 +184,6 @@
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="70143" class="javax.swing.JButton" binding="SALIRButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="SALIR"/>
-        </properties>
-      </component>
       <hspacer id="479a7">
         <constraints>
           <grid row="2" column="9" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
@@ -205,14 +197,27 @@
           <text value="Ingresar/Actualizar Producto"/>
         </properties>
       </component>
-      <component id="90904" class="javax.swing.JLabel">
+      <component id="90904" class="javax.swing.JLabel" binding="fot_zapa">
         <constraints>
-          <grid row="1" column="6" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="6" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
+      <component id="70143" class="javax.swing.JButton" binding="SALIRButton" default-binding="true">
+        <constraints>
+          <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="SALIR"/>
+        </properties>
+      </component>
+      <vspacer id="af9bc">
+        <constraints>
+          <grid row="13" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
     </children>
   </grid>
 </form>

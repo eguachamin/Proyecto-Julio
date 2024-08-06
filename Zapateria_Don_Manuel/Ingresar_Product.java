@@ -2,7 +2,7 @@ package Zapateria_Don_Manuel;
 
 import javax.swing.*;
 
-public class Ingresar_Product {
+public class Ingresar_Product extends JFrame {
     private JPanel JPanel_IntoProduct;
     private JTextField textField1;
     private JTextField textField2;
@@ -13,4 +13,11 @@ public class Ingresar_Product {
     private JButton actualizarButton;
     private JButton ingresarButton;
     private JTextField textField5;
+
+    public void iniciar(){
+        setVisible(true);
+        setLocationRelativeTo(null);
+        setSize(500,600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 }
