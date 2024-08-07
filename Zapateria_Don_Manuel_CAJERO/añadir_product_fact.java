@@ -108,8 +108,8 @@ public class añadir_product_fact extends JFrame {
                     strmInsert.setInt(1, numero_nota);
                     strmInsert.setInt(2, Integer.parseInt(codigo));
                     strmInsert.setString(3, nombre);
-                    strmInsert.setDouble(4, precio_unitario);
-                    strmInsert.setInt(5, cantidad_deseada);
+                    strmInsert.setInt(4, cantidad_deseada );
+                    strmInsert.setDouble(5,precio_unitario );
                     strmInsert.setDouble(6, totalDet);
                     int rowAffected = strmInsert.executeUpdate();
                     if (rowAffected > 0) {
@@ -145,6 +145,27 @@ public class añadir_product_fact extends JFrame {
                         model.addRow(new Object[]{id, nombre1, precio, stock, icon});
                     }
                     strmSelect.close();
+                    //Colocar Datos de calculo
+                    String sqlCalculos = "SELECT SUM(TOTALDET) AS SUBTOTAL, SUM(TOTALDET) * 0.15 AS IVA, SUM(TOTALDET) + (SUM(TOTALDET) * 0.15) AS TOTALFACTURA " +
+                            "FROM DETFACTURA WHERE NUMFAC = ? GROUP BY NUMFAC";
+                    PreparedStatement strmCalculo = conectarse.prepareStatement(sqlCalculos);
+                    strmCalculo.setInt(1, numero_nota);
+                    ResultSet rs1 = strmCalculo.executeQuery();
+                    if (!rs1.isBeforeFirst()) { // Verificar si el ResultSet está vacío
+                        JOptionPane.showMessageDialog(null, "El código de producto ingresado no existe.");
+                        return;
+                    }
+                    while (rs1.next()) {
+                        double subtotal = rs1.getDouble("SUBTOTAL");
+                        double iva = rs1.getDouble("IVA");
+                        double totalFactura = rs1.getDouble("TOTALFACTURA");
+
+                        // Actualizar los campos en notaDeVenta
+                        notaDeVenta.subtotal.setText(String.format("%.2f", subtotal));
+                        notaDeVenta.iva.setText(String.format("%.2f", iva));
+                        notaDeVenta.total.setText(String.format("%.2f", totalFactura));
+                    }
+                    strmCalculo.close();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 } catch (NumberFormatException ex) {

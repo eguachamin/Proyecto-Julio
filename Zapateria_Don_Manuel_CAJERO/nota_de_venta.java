@@ -21,18 +21,20 @@ public class nota_de_venta extends JFrame {
     private JLabel direcc_fac;
     private JLabel telf_fac;
     private JLabel fecha_actual;
-    private JLabel subtotal;
-    private JLabel iva;
-    private JLabel total;
+    public JLabel subtotal;
+    public JLabel iva;
+    public JLabel total;
     private JPanel JPAnel_notaVenta;
     private JButton cancelarButton;
     private JButton generarButton;
     private JTextField numero_nota; // Cambiado a no estático
+    private JLabel logo_nota;
 
     public nota_de_venta() {
         super("Nota de Venta / Compra");
         setContentPane(JPAnel_notaVenta);
-
+        ImageIcon icon_adm = new ImageIcon(getClass().getResource("IMAGENES2/zapatos.png"));
+        logo_nota.setIcon(icon_adm);
         // Configurar la tabla
         String[] column_names = {"Cod_Producto", "Nombre", "Precio", "Cantidad", "Imagen"};
         DefaultTableModel model = new DefaultTableModel(column_names, 0);
