@@ -72,6 +72,7 @@ public class Menu_Admin extends JFrame{
                 dispose();
             }
         });
+
         eliminarProductosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
