@@ -5,7 +5,7 @@ import Zapateria_Don_Manuel_CAJERO.nota_de_venta;
 
 public class Main {
     public static void main (String[] args){
-        nota_de_venta inicio = new nota_de_venta();
+        Visualizar_NotaVenta inicio = new Visualizar_NotaVenta();
         inicio.iniciar();
     }
 }

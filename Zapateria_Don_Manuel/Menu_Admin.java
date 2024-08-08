@@ -8,14 +8,12 @@ public class Menu_Admin extends JFrame{
     private JPanel JPanel_Menu;
     private JButton ingresarActualizarUsuariosButton;
     private JButton eliminarUsuariosButton;
-    private JButton ventasPorVendedorButton;
     private JButton ventasGeneralButton;
     private JButton eliminarProductosButton;
     private JButton ingresarActualizarProductoButton;
     private JButton SALIRButton;
     private JLabel img_user_ing;
     private JLabel delte_img_user;
-    private JLabel img_venta_user;
     private JLabel img_ing_prd;
     private JLabel delte_prd_img;
     private JLabel genral_img_vent;
@@ -29,8 +27,6 @@ public class Menu_Admin extends JFrame{
         img_user_ing.setIcon(icon_user);
         ImageIcon icon_delete_user = new ImageIcon(getClass().getResource("IMAGENES/borrar-usuario.png"));
         delte_img_user.setIcon(icon_delete_user);
-        ImageIcon icon_venta = new ImageIcon(getClass().getResource("IMAGENES/metodo-de-pago.png"));
-        img_venta_user.setIcon(icon_venta);
         ImageIcon icon_product = new ImageIcon(getClass().getResource("IMAGENES/zapatillas.png"));
         img_ing_prd.setIcon(icon_product);
         ImageIcon icon_delete_prod = new ImageIcon(getClass().getResource("IMAGENES/borrar.png"));
@@ -81,8 +77,15 @@ public class Menu_Admin extends JFrame{
                 dispose();
             }
         });
+        ventasGeneralButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Visualizar_NotaVenta inicio =new Visualizar_NotaVenta();
+                inicio.iniciar();
+                dispose();
+            }
+        });
     }
-
     public void iniciar(){
         setVisible(true);
         setLocationRelativeTo(null);

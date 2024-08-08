@@ -7,10 +7,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.util.Date;
+import javax.swing.JTextField;
+import java.text.SimpleDateFormat;
 
 public class nota_de_venta extends JFrame {
     private JTextField cod_cliente;
@@ -89,6 +90,55 @@ public class nota_de_venta extends JFrame {
                 dispose();
             }
         });
+        generarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try (Connection conectarse = Conection_BD.getConnection()) {
+                    if (conectarse == null) {
+                        throw new SQLException("No se pudo obtener la conexión.");
+                    }
+                    int numero_venta =Integer.parseInt(numero_nota.getText());
+                    int cedula_buscada = Integer.parseInt(cod_cliente.getText());
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    java.util.Date parsedDate = dateFormat.parse(fecha_actual.getText());
+                    java.sql.Date fecha = new java.sql.Date(parsedDate.getTime());
+                    double subtotal1 = Double.parseDouble(subtotal.getText().replace(",", "."));
+                    double iva1 = Double.parseDouble(iva.getText().replace(",", "."));
+                    double total1 = Double.parseDouble(total.getText().replace(",", "."));
+                    String sql1 = "INSERT INTO CABFACTURA (NUMFAC, IDCLI,FECHA,TOTAL_FACT,IVA_FACT,TOTALFACT) VALUES (?,?,?,?,?,?)";
+                    PreparedStatement strm = conectarse.prepareStatement(sql1);
+                    strm.setInt(1, numero_venta);
+                    strm.setInt(2, cedula_buscada);
+                    strm.setDate(3, fecha);
+                    strm.setDouble(4, subtotal1);
+                    strm.setDouble(5, iva1);
+                    strm.setDouble(6, total1);
+                    int rowsInserted = strm.executeUpdate();
+
+                    if (rowsInserted > 0) {
+                        JOptionPane.showMessageDialog(null, "La nota se ha generado correctamente");
+                        DefaultTableModel model = new DefaultTableModel(column_names,0);
+                        table1.setModel(model);
+                        fecha_actual.setText("");
+                        name_fac.setText("");
+                        direcc_fac.setText("");
+                        telf_fac.setText("");
+                        subtotal.setText("");
+                        iva.setText("");
+                        total.setText("");
+                        numero_nota.setText("");
+                        cod_cliente.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Verifique Datos y complete campos");
+                    }
+                    strm.close();
+
+
+                } catch (SQLException | ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
 
     public int getNumero_nota() {
@@ -105,4 +155,5 @@ public class nota_de_venta extends JFrame {
         setLocationRelativeTo(null);
         setSize(500, 400);
     }
+
 }
