@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conection_BD {
-    private static final String url = "jdbc:mysql://localhost:3306/ZAPATERIA_FACTURACION";
-    private static final String user = "root";
-    private static final String password = "";
+    private static final String url = "jdbc:mysql://bx27fol6tu9somzzfsun-mysql.services.clever-cloud.com:3306/bx27fol6tu9somzzfsun";
+    private static final String user = "us6fu1ztezjezwe1";
+    private static final String password = "urpLfu2mbIQP2tDmeS9A";
 
     public static Connection getConnection()  {
         try {
