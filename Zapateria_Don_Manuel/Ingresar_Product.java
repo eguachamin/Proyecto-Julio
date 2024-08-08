@@ -202,7 +202,7 @@ public class Ingresar_Product extends JFrame {
     public void iniciar(){
         setVisible(true);
         setLocationRelativeTo(null);
-        setSize(500,600);
+        setSize(500,450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

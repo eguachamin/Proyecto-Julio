@@ -158,7 +158,7 @@ public class nota_de_venta extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        setSize(500, 400);
+        setSize(700, 600);
     }
     public void generarPDF(int numero_venta, int cedula_buscada, java.sql.Date fecha, double subtotal1, double iva1, double total1) {
         Document document = new Document();

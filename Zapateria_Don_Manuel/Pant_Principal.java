@@ -45,7 +45,7 @@ public class Pant_Principal  extends JFrame{
     }
 
     public void iniciar() {
-        setSize(500,600);
+        setSize(500,500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);

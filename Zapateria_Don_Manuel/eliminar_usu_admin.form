@@ -61,7 +61,7 @@
           <grid row="6" column="6" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="59546" class="javax.swing.JLabel">
@@ -79,7 +79,7 @@
           <grid row="8" column="6" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="b612b" class="javax.swing.JLabel">
@@ -97,7 +97,7 @@
           <grid row="12" column="6" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="e0cc5" class="javax.swing.JLabel" binding="direcc">
@@ -105,7 +105,7 @@
           <grid row="10" column="6" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="8f985" class="javax.swing.JLabel">
@@ -133,7 +133,7 @@
           <grid row="14" column="6" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="3eed7" class="javax.swing.JLabel">
@@ -151,7 +151,7 @@
           <grid row="16" column="6" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="3848d" class="javax.swing.JLabel">
@@ -169,7 +169,7 @@
           <grid row="18" column="6" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <hspacer id="52d82">
@@ -287,10 +287,10 @@
       </vspacer>
       <component id="5f044" class="javax.swing.JLabel" binding="elim_foto">
         <constraints>
-          <grid row="10" column="9" row-span="8" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="10" column="9" row-span="5" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="12e9c" class="javax.swing.JButton" binding="ELIMINARButton" default-binding="true">

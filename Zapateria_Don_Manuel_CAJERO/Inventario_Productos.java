@@ -1,4 +1,8 @@
-package Zapateria_Don_Manuel;
+package Zapateria_Don_Manuel_CAJERO;
+
+import Zapateria_Don_Manuel.Conection_BD;
+import Zapateria_Don_Manuel.ImagenRender;
+import Zapateria_Don_Manuel.Menu_Admin;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,20 +14,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Eliminar_Products extends JFrame {
-    private JPanel JPanel_ElimProd;
+public class Inventario_Productos extends JFrame {
+    private JPanel JPanel_Inventario;
     private JTextField cod_buscar;
     private JButton buscarButton;
+    private JButton todoButton;
     private JButton limpiarButton;
-    private JButton eliminarButton;
     private JTable table1;
     private JButton menuButton;
 
-
-    public Eliminar_Products() {
-        super("Eliminar Producto");
-        setContentPane(JPanel_ElimProd);
-
+    public Inventario_Productos() {
+        super("INVENTARIO PRODUCTOS");
+        setContentPane(JPanel_Inventario);
         String[] column_names = {"Cod_Producto","Nombre","Descripción","Precio","Cantidad","Imagen"};
         DefaultTableModel model = new DefaultTableModel(column_names,0);
         table1.setModel(model);
@@ -69,39 +71,37 @@ public class Eliminar_Products extends JFrame {
                 }
             }
         });
-        menuButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Menu_Admin inicio = new Menu_Admin();
-                inicio.iniciar();
-                dispose();
-            }
-        });
-        eliminarButton.addActionListener(new ActionListener() {
+        todoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try (Connection conectarse = Conection_BD.getConnection()){
                     if (conectarse == null) {
                         throw new SQLException("No se pudo obtener la conexión.");
                     }
-                    String codbusca1=cod_buscar.getText();
-                    String sql = "DELETE FROM PRODUCTOS WHERE codigo_producto=?";
-                    PreparedStatement stm = conectarse.prepareStatement(sql);
-                    stm.setString(1,codbusca1);
-                    int affectedRows = stm.executeUpdate();
-                    if (affectedRows> 0){
-                        JOptionPane.showMessageDialog(null,"El producto se encuentra eliminado");
-                        DefaultTableModel model = new DefaultTableModel(column_names,0);
-                        table1.setModel(model);
-                        cod_buscar.setText("");
+                    String sql = "SELECT codigo_producto,nombre,descripcion,precio,cantidad,ruta_imagen FROM PRODUCTOS ";
+                    PreparedStatement strm = conectarse.prepareStatement(sql);
+                    ResultSet rs = strm.executeQuery();
+                    DefaultTableModel model = (DefaultTableModel) table1.getModel();
+                    model.setRowCount(0);
+                    while (rs.next()){
+                        int id = rs.getInt("codigo_producto");
+                        String nombre = rs.getString("nombre");
+                        String descripcion = rs.getString("descripcion");
+                        double precio = rs.getDouble("precio");
+                        int stock = rs.getInt("cantidad");
+                        byte[] imgBytes = rs.getBytes("ruta_imagen");
+                        ImageIcon icon = null;
+                        if (imgBytes != null) {
+                            Image img = Toolkit.getDefaultToolkit().createImage(imgBytes);
+                            icon = new ImageIcon(img.getScaledInstance(32, 32, Image.SCALE_SMOOTH));
+                        }
+                        model.addRow(new Object[]{id, nombre, descripcion, precio, stock, icon});
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,"El codigo ingresado es incorrecto");
-                    }
-                    stm.close();
-
+                    strm.close();
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Por favor ingrese un código de producto válido.");
                 }
             }
         });
@@ -113,12 +113,19 @@ public class Eliminar_Products extends JFrame {
                 cod_buscar.setText("");
             }
         });
+        menuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu_Cajero inicio = new Menu_Cajero();
+                inicio.iniciar();
+                dispose();
+            }
+        });
     }
-
     public void iniciar(){
         setVisible(true);
         setLocationRelativeTo(null);
-        setSize(600,500);
+        setSize(600,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

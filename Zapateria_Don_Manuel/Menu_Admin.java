@@ -18,11 +18,15 @@ public class Menu_Admin extends JFrame{
     private JLabel delte_prd_img;
     private JLabel genral_img_vent;
     private JLabel fot_zapa;
+    private JButton inventarioProdButton;
+    private JLabel foto_inv;
 
 
     public Menu_Admin() {
         super("Menú Administrador");
         setContentPane(JPanel_Menu);
+        ImageIcon icon_inv = new ImageIcon(getClass().getResource("IMAGENES/produccion.png"));
+        foto_inv.setIcon(icon_inv);
         ImageIcon icon_user = new ImageIcon(getClass().getResource("IMAGENES/user-interface1.png"));
         img_user_ing.setIcon(icon_user);
         ImageIcon icon_delete_user = new ImageIcon(getClass().getResource("IMAGENES/borrar-usuario.png"));
@@ -85,11 +89,19 @@ public class Menu_Admin extends JFrame{
                 dispose();
             }
         });
+        inventarioProdButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Inventario_Admin1 inicio = new Inventario_Admin1();
+                inicio.iniciar();
+                dispose();
+            }
+        });
     }
     public void iniciar(){
         setVisible(true);
         setLocationRelativeTo(null);
-        setSize(600,600);
+        setSize(570,550);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

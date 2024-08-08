@@ -36,6 +36,9 @@ public class cliente_acciones extends JFrame{
     private JLabel direcc_searched;
     private JLabel telf_searched;
     private JLabel mail_searched;
+    private JButton menuButton;
+    private JButton menuButton1;
+    private JButton MENUButton;
 
     public cliente_acciones() {
         super("GESTION DE CLIENTES");
@@ -283,6 +286,30 @@ public class cliente_acciones extends JFrame{
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        menuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu_Cajero inicio = new Menu_Cajero();
+                inicio.iniciar();
+                dispose();
+            }
+        });
+        menuButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu_Cajero inicio = new Menu_Cajero();
+                inicio.iniciar();
+                dispose();
+            }
+        });
+        MENUButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu_Cajero inicio = new Menu_Cajero();
+                inicio.iniciar();
+                dispose();
             }
         });
     }

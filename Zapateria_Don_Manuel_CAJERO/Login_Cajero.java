@@ -1,6 +1,8 @@
 package Zapateria_Don_Manuel_CAJERO;
 
 import Zapateria_Don_Manuel.Conection_BD;
+import Zapateria_Don_Manuel.Pant_Principal;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +17,7 @@ public class Login_Cajero extends JFrame{
     private JButton INGRESARButton;
     private JPasswordField pass_ing;
     private JLabel caj_img;
+    private JButton SALIRButton;
 
     public Login_Cajero() {
         super("Login Cajero");
@@ -57,6 +60,14 @@ public class Login_Cajero extends JFrame{
                     throw new RuntimeException(ex);
 
                 }
+            }
+        });
+        SALIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Pant_Principal inicio = new Pant_Principal();
+                inicio.iniciar();
+                dispose();
             }
         });
     }

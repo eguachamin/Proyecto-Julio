@@ -62,7 +62,7 @@ public class Visualizar_NotaVenta extends JFrame{
     public void iniciar(){
         setVisible(true);
         setLocationRelativeTo(null);
-        setSize(600,600);
+        setSize(650,400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
