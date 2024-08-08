@@ -2,21 +2,26 @@ package Zapateria_Don_Manuel_CAJERO;
 
 import Zapateria_Don_Manuel.Conection_BD;
 import Zapateria_Don_Manuel.ImagenRender;
-
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.*;
 import java.text.ParseException;
-import java.util.Date;
 import javax.swing.JTextField;
 import java.text.SimpleDateFormat;
 
 public class nota_de_venta extends JFrame {
     private JTextField cod_cliente;
     private JButton buscarButton;
-    public JTable table1; // Esta es la tabla que se mostrará en nota_de_venta
+    public JTable table1;
     private JButton añadirProductoButton;
     private JLabel name_fac;
     private JLabel direcc_fac;
@@ -28,7 +33,7 @@ public class nota_de_venta extends JFrame {
     private JPanel JPAnel_notaVenta;
     private JButton cancelarButton;
     private JButton generarButton;
-    private JTextField numero_nota; // Cambiado a no estático
+    private JTextField numero_nota;
     private JLabel logo_nota;
 
     public nota_de_venta() {
@@ -155,5 +160,58 @@ public class nota_de_venta extends JFrame {
         setLocationRelativeTo(null);
         setSize(500, 400);
     }
+    public void generarPDF(int numero_venta, int cedula_buscada, java.sql.Date fecha, double subtotal1, double iva1, double total1) {
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream("nota_de_venta_" + numero_venta + ".pdf"));
+            document.open();
+            document.add(new Paragraph("Nota de Venta"));
+            document.add(new Paragraph("Número de Venta: " + numero_venta));
+            document.add(new Paragraph("ID Cliente: " + cedula_buscada));
+            document.add(new Paragraph("Fecha: " + fecha));
+            document.add(new Paragraph(" "));
+            document.add(new Paragraph("Productos:"));
+            document.add(new Paragraph(" "));
+            PdfPTable table = new PdfPTable(5);
+            table.addCell("Cod_Producto");
+            table.addCell("Nombre");
+            table.addCell("Precio");
+            table.addCell("Cantidad");
+            table.addCell("Total");
+
+            try (Connection conectarse = Conection_BD.getConnection()) {
+                if (conectarse == null) {
+                    throw new SQLException("No se pudo obtener la conexión.");
+                }
+                String sql = "SELECT CODPROD, NOMBREPROD, VALORVENTA, CANTIDAD_ELEG,TOTALDET FROM DETFACTURA WHERE NUMFAC = ?";
+                PreparedStatement strm = conectarse.prepareStatement(sql);
+                strm.setInt(1, numero_venta);
+                ResultSet rs = strm.executeQuery();
+                while (rs.next()) {
+                    table.addCell(rs.getString("CODPROD"));
+                    table.addCell(rs.getString("NOMBREPROD"));
+                    table.addCell(rs.getString("VALORVENTA"));
+                    table.addCell(rs.getString("CANTIDAD_ELEG"));
+                    table.addCell(rs.getString("TOTALDET"));
+                }
+                strm.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            document.add(table);
+            document.add(new Paragraph(" "));
+            document.add(new Paragraph("Subtotal: " + subtotal1));
+            document.add(new Paragraph("IVA: " + iva1));
+            document.add(new Paragraph("Total: " + total1));
+
+            JOptionPane.showMessageDialog(null, "PDF generado correctamente.");
+        } catch (DocumentException | IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            document.close();
+        }
+    }
+
 
 }

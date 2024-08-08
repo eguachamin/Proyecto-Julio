@@ -166,11 +166,20 @@ public class añadir_product_fact extends JFrame {
                         notaDeVenta.total.setText(String.format("%.2f", totalFactura));
                     }
                     strmCalculo.close();
+                    // ACTUALIZAR STOCK
+                    String sqlactualizar = "UPDATE PRODUCTOS SET Cantidad= Cantidad - ? WHERE codigo_producto=?";
+                    PreparedStatement strmStock = conectarse.prepareStatement(sqlactualizar);
+                    strmStock.setInt(1, cantidad_deseada );
+                    strmStock.setInt(2, Integer.parseInt(codigo));
+                    strmStock.executeUpdate();
+
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese un código de producto válido.");
                 }
+
+
             }
         });
     }
