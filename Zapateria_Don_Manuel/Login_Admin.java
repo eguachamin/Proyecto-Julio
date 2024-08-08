@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 
 public class Login_Admin extends JFrame{
     private JTextField usuario_ing;
@@ -15,6 +14,7 @@ public class Login_Admin extends JFrame{
     private JPanel JPanel_LogAdm;
     private JButton INGRESARButton;
     private JLabel imagen_admin;
+    private JButton SALIRButton;
 
     public Login_Admin() {
         super("Inicio de Sesión");
@@ -60,6 +60,14 @@ public class Login_Admin extends JFrame{
             }
         });
 
+        SALIRButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Pant_Principal inicio = new Pant_Principal();
+                inicio.iniciar();
+                dispose();
+            }
+        });
     }
     public void iniciar(){
         setVisible(true);
